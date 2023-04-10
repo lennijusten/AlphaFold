@@ -1,0 +1,21 @@
+# Base python build for biology projects
+# Lennart Justen
+# Last modified: 2023-04-09
+
+
+# Choose a base image
+FROM python:3.8
+
+# Set the working directory (here the Dockerfile is stored)
+WORKDIR /AlphaFold
+
+# Install dependencies
+COPY requirements.txt /app
+RUN pip install -r requirements.txt
+
+# Copy the application code
+COPY hello_world.py /AlphaFold
+
+# Set the command to run
+CMD ["python", "hello_world.py"]
+
